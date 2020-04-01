@@ -19,8 +19,8 @@ int c;
 	do{
 	
 	
-	printf("Select the required option \n");
-	printf("1.Find the PageFault Rate\n");
+	printf("select the option \n");
+	printf("1.find the rate\n");
 	printf("2.Exit");
 	scanf("%d",&c);
 	switch(c){
@@ -35,37 +35,37 @@ int c;
 void userInput(){
 	
 	
-	printf("\nEnter service Page Fault [Empty|Page is not Modified][in milliseconds]");
+	printf("enter the value of a");
 	scanf("%lf",&a);
-	printf("Enter Service Page Fault [Modified Page][in milliseconds]");
+	printf("enter the value of b ");
 	scanf("%lf",&b);
-	printf("Enter Memory Access Time[in nanoseconds]");
+	printf("enter memory access time");
 	scanf("%lf",&c);
-	printf("Enter Percentage of time the page to be replaced is modified[0-100]");
+	printf("enter Percentage of time ");
 	scanf("%lf",d);
-	printf("Enter Effective Access time[in nanoseconds]");
+	printf("enter effective time");
 	scanf("%lf",&e);
 
 	n = (a*1000000);
 	nm= (b*1000000);
 	f = (d/100);   
-	printf("\nPage Fault rate calculated For:\n");
-	printf("Service Page Fault[Empty|Page Not Modified]=%lf \n",n);
-	printf("Service Page Fault [Modified Page][in nanoseconds] %lf \n",nm);
-	printf("Memory Access Time[in nanoseconds]%lf\n",c);
-	printf("Effective Access Time %lf\n",e);
+	printf("page fault rate calculated for:\n");
+	printf("service page fault=%lf \n",n);
+	printf("service page fault modified page %lf \n",nm);
+	printf("memory access time %lf\n",c);
+	printf("effective access time %lf\n",e);
         p=  page_fault_rate(n,nm,c,f,e);
-	printf("\nMaximum Acceptable Page Fault rate = %.2e[exponential notation]",p);
+	printf("maximum acceptable page fault  = %.2e",p);
 
 }
 
-double page_fault_rate(double a,double b,double memAccess,double timesPages,double effAccess){
+double page_fault_rate(double a,double b,double mem,double t,double e){
 double assume,serve;
 	double nu,de;
 	double pageFault;
-	 assume = (1- timesPages)*a;
-	 serve = timesPages*b;
-	 nu = effAccess - memAccess;
+	 assume = (1- t)*a;
+	 serve = t*b;
+	 nu = e - mem;
      de = (assume+serve);
 
 	pageFault = nu/de;
