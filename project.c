@@ -2,7 +2,7 @@
 #include<pthread.h>
 #include<stdio.h>
 int a=0;
-long f[500];
+long f[400];
 int i;
 void *fun(void *b)
 {
@@ -25,9 +25,9 @@ pthread_attr_t attr;
 pthread_attr_init(&attr);
 printf("Enter the number of Fibonacci series: ");
 scanf("%d",&a);
-if(a>500)
+if(a>400)
 {
-printf("Printing upto 500 only");
+printf("Printing upto 400 only");
 a=500;
 }
 pthread_create(&id, &attr, fun, cf[1]);
