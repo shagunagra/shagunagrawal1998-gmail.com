@@ -23,11 +23,11 @@ int main(int c, char *cf[])
 pthread_t id;
 pthread_attr_t attr;
 pthread_attr_init(&attr);
-printf("Enter the number of Fibonacci series: ");
+printf(" no Fib ser: ");
 scanf("%d",&a);
 if(a>400)
 {
-printf("Printing upto 400 only");
+printf("Print only 400");
 a=500;
 }
 pthread_create(&id, &attr, fun, cf[1]);
